@@ -8,11 +8,12 @@ public class Post {
 	// fields
 	String postId;
 	String content;
-	User user;
+	String commentUserId;
 	LocalDate date;
-
+	
 	List<Comment> commentList;
-	List<User> likesList;
+	List<Like> likes;
+	
 
 	//constructor
 	public Post(String postId, String content) {
@@ -20,35 +21,32 @@ public class Post {
 		this.content = content;
 		this.postId = postId;
 		commentList = new LinkedList<Comment>();
-		likesList = new LinkedList<User>();
+		likes = new LinkedList<Like>();
 	}
 
 	public List<Comment> getCommentList() {
 		return commentList;
 	}
 
-	public List<User> getLikesList() {
-		return likesList;
-	}
-
-
+	
 	//add Comment
 	public void addComment(Comment comment) {
 		this.commentList.add(comment);
 	}
-
+	
 	//add Like
-	public void addLike(User user) {
-		this.likesList.add(user);
+	public void addLike(Like like) {
+		this.likes.add(like);
 	}
+	
 
 
 	public String getPostId() {
 		return postId;
 	}
 
-	public User getUser() {
-		return user;
+	public String getUser() {
+		return commentUserId;
 	}
 
 	public String getpostId() {
@@ -67,5 +65,12 @@ public class Post {
 		this.content = content;
 	}
 
-}
+	public List<Like> getLikes() {
+		return likes;
+	}
 
+	public void setLikes(List<Like> likes) {
+		this.likes = likes;
+	}
+
+}
