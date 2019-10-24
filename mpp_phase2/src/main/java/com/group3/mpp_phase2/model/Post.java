@@ -4,15 +4,19 @@ import java.util.List;
 import java.time.LocalDate;
 import java.util.LinkedList;
 
+import java.util.List;
+import java.time.LocalDate;
+import java.util.LinkedList;
+
 public class Post {
 	// fields
 	String postId;
 	String content;
-	String commentUserId;
+	User user;
 	LocalDate date;
 	
 	List<Comment> commentList;
-	List<Like> likes;
+	List<Like> likesList;
 	
 
 	//constructor
@@ -21,11 +25,15 @@ public class Post {
 		this.content = content;
 		this.postId = postId;
 		commentList = new LinkedList<Comment>();
-		likes = new LinkedList<Like>();
+		likesList = new LinkedList<Like>();
 	}
 
 	public List<Comment> getCommentList() {
 		return commentList;
+	}
+	
+	public List<Like> getLikesList() {
+		return likesList;
 	}
 
 	
@@ -35,22 +43,17 @@ public class Post {
 	}
 	
 	//add Like
-	public void addLike(Like like) {
-		this.likes.add(like);
-	}
-	
-
-
-	public String getPostId() {
-		return postId;
+	public void addLike(Like user) {
+		this.likesList.add(user);
 	}
 
-	public String getUser() {
-		return commentUserId;
-	}
 
 	public String getpostId() {
 		return postId;
+	}
+
+	public User getUser() {
+		return user;
 	}
 
 	public LocalDate getDate() {
@@ -65,12 +68,12 @@ public class Post {
 		this.content = content;
 	}
 
-	public List<Like> getLikes() {
-		return likes;
+	@Override
+	public String toString() {
+		return content;
 	}
 
-	public void setLikes(List<Like> likes) {
-		this.likes = likes;
-	}
+	
 
 }
+
