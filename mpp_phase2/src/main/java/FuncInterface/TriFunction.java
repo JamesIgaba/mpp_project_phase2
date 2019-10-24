@@ -1,4 +1,4 @@
-package com.group3.mpp_phase2.functionalInterfaces;
+package FuncInterface;
 
 @FunctionalInterface
 public interface TriFunction<S,T,R,U>{

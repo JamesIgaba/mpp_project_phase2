@@ -1,4 +1,4 @@
-package com.group3.mpp_phase2.model;
+package model;
 
 public class Like {
 
@@ -22,5 +22,4 @@ public class Like {
 	public void setLikeUserId(String likeUserId) {
 		this.likeUserId = likeUserId;
 	}
-	
 }

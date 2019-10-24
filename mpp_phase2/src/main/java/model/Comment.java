@@ -1,4 +1,4 @@
-package com.group3.mpp_phase2.model;
+package model;
 
 public class Comment {
 
@@ -30,4 +30,11 @@ public class Comment {
 	public void setCommentContent(String commentContent) {
 		this.commentContent = commentContent;
 	}
+
+	@Override
+	public String toString() {
+		return commentContent;
+	}
+	
+	
 }

@@ -1,8 +1,4 @@
-package com.group3.mpp_phase2.model;
-
-import java.util.List;
-import java.time.LocalDate;
-import java.util.LinkedList;
+package model;
 
 import java.util.List;
 import java.time.LocalDate;
@@ -24,8 +20,8 @@ public class Post {
 		this.date = LocalDate.now();
 		this.content = content;
 		this.postId = postId;
-		commentList = new LinkedList<Comment>();
-		likesList = new LinkedList<Like>();
+		commentList = new LinkedList<>();
+		likesList = new LinkedList<>();
 	}
 
 	public List<Comment> getCommentList() {

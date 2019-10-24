@@ -1,4 +1,4 @@
-package com.group3.mpp_phase2.model;
+package model;
 
 import java.time.LocalDate;
 import java.time.Period;
@@ -28,9 +28,9 @@ public class User {
 		this.emailId = emailId;
 		
 		this.dateOfBirth = dateOfBirth ;
-		friendsList = new LinkedList<User>();
-		friendRequestList = new LinkedList<User>();
-		postList = new LinkedList<Post>();
+		friendsList = new LinkedList<>();
+		friendRequestList = new LinkedList<>();
+		postList = new LinkedList<>();
 		
 		Period p = Period.between(this.dateOfBirth, LocalDate.now());
 		this.age = p.getYears();
@@ -53,6 +53,10 @@ public class User {
 		Period p = Period.between(this.dateOfBirth, LocalDate.now());
 		this.age = p.getYears();
 		return age;
+	}
+	
+	public void setAge() {
+		this.age = age;
 	}
 
 

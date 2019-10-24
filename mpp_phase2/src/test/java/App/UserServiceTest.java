@@ -1,4 +1,4 @@
-package com.group3.mpp_phase2;
+package App;
 
 import static org.junit.Assert.*;
 
@@ -8,9 +8,8 @@ import java.util.List;
 
 import org.junit.Test;
 
-import com.group3.mpp_phase2.model.Post;
-import com.group3.mpp_phase2.model.User;
-import com.group3.mpp_phase2.service.UserService;
+import model.Post;
+import model.User;
 
 public class UserServiceTest {
 
@@ -47,18 +46,7 @@ public class UserServiceTest {
 		assertEquals(expected, actual);
 	}
 	
-//	@Test 
-//	public void getByAgeTest()
-//	{	
-//	
-////		user1.setAge();
-////		user2.setAge();
-////		user3.setAge();
-//		List<User> expected = Arrays.asList(user1,user3);
-//		List<User> actual = UserService.getByAge.apply(users, 38);
-//		assertEquals(expected, actual);
-//	}
-//	
+		
 	@Test 
 	public void getFriendRequestsTest()
 	{
@@ -82,7 +70,6 @@ public class UserServiceTest {
 	assertEquals(expected, actual);
 	
 	}
-	
 	@Test 
 	public void getTopKUsersWithMostPostsTest()
 	{
@@ -105,5 +92,15 @@ public class UserServiceTest {
 		
 	}
 	
-
+	@Test 
+	public void getByAgeTest()
+	{	
+	
+		user1.setAge();
+		user2.setAge();
+		user3.setAge();
+		List<User> expected = Arrays.asList(user1,user3);
+		List<User> actual = UserService.getByAge.apply(users, 38);
+		assertEquals(expected, actual);
+	}
 }
