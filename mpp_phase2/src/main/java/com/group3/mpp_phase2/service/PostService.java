@@ -34,6 +34,17 @@ public class PostService {
 	listOfAllPosts.stream()
 	.filter(p -> p.getpostId().equals( postId))
 	.findFirst()
-	.get();	
+	.get();
+	
+	static Function< List<Post>, Post> getPostWithMostComments = (listOfAllPosts) ->
+	listOfAllPosts.stream()
+	.max( (p1,p2) -> p1.getCommentList().size() - p2.getCommentList().size())
+	.get();
+
+	static BiFunction< List<Post>, String,List<User>> getPostLikes = (listOfAllPosts,postId) ->
+	listOfAllPosts.stream()
+	.filter(p -> p.getpostId().equals(postId))
+	.flatMap(p -> p.getLikesList().parallelStream())
+	.collect(Collectors.toList());
 
 }
