@@ -20,6 +20,41 @@ public class UserServiceTest {
 	
 	List<User> users = Arrays.asList(user1,user2,user3);
 	
+	@Test 
+	public void getByAgeTest()
+	{	
+	
+		user1.setAge();
+		user2.setAge();
+		user3.setAge();
+		List<User> expected = Arrays.asList(user1,user3);
+		List<User> actual = UserService.getByAge.apply(users, 38);
+		assertEquals(expected, actual);
+	}
+	
+	@Test 
+	public void getFriendRequestsTest()
+	{
+		user1.addFriendRequest(user2);
+		user1.addFriendRequest(user3);
+		
+		//user1.getFriendRequestList();
+		List<User> expected = Arrays.asList(user2,user3);
+		List<User> actual = UserService.getFriendRequests.apply(users, "wtesf@ginger.com");
+		assertEquals(expected, actual);
+	}
+	@Test 
+	public void  getTopKFamousUsersTest()
+	{
+		user1.addFriend(user2);
+		user1.addFriend(user3);
+		user2.addFriend(user1);
+		user3.addFriend(user2);
+	List<User> expected = Arrays.asList(user1);
+	List<User> actual = UserService.getTopKFamousUsers.apply(users, 1);
+	assertEquals(expected, actual);
+	
+	}
 	
 	@Test 
 	public void getTopKUsersWithMostPostsTest()
