@@ -8,6 +8,23 @@ import com.group3.mpp_phase2.model.User;
 
 public class UserService {
 	
+	public static BiFunction<List<User>,String,User> getByEmailservice = (listOfAllUsers,emailId) -> 
+	listOfAllUsers.stream()
+	.filter(u -> u.getEmailId().equals(emailId))
+	.findFirst()
+	.get();
+
+	public static BiFunction<String,List<User>,List<User>> getUsersByFirstName = (firstName, listOfAllUsers) ->
+	listOfAllUsers.stream()
+	.filter(u -> u.getFirstName().equals(firstName))
+	.collect(Collectors.toList());
+	
+	public static BiFunction<List<User>,String,List<User>> getFriends = (listOfAllUsers,emailId) -> 
+	listOfAllUsers.stream()
+	.filter(u -> u.getEmailId().equals(emailId))
+	.flatMap(u -> u.getFriendsList().stream())
+	.collect(Collectors.toList());
+	
 	public static BiFunction< List<User>, Integer, List<User> > getByAge = (listOfAllUsers, age) ->
 	listOfAllUsers.stream()
 	.filter(u -> u.getAge() == age)
